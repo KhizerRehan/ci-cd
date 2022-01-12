@@ -34,3 +34,6 @@ jobs:
         
       - name: build
         run: yarn build --if-present
+
+      - name: test
+        run: yarn test --if-present  
