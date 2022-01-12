@@ -14,7 +14,7 @@ jobs:
     if: "!contains(github.event.head_commit.message, 'skip yarn ci')"
     runs-on: ubuntu-latest
     env:
-      CI: false
+      CI: false # This flag was added when build were failing due to lint errors:
 
     strategy:
       matrix:
