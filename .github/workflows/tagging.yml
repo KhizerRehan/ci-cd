@@ -2,7 +2,6 @@
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
 name: Action/Tagging (Node 14.x) CI
-
 on:
   push:
     branches:
@@ -29,10 +28,10 @@ jobs:
 
   tagging: # Job-2
     runs-on: ubuntu-latest
-    needs: [build]
+    needs: [build] # It adds dependency on 'build' job to run AFTER `build` job is done.
     steps:
       - name: Bump version and push tag
-        id: tag_version
+        id: tag_version # default tagging name convention used v0.0.1-action-tagging.<BUMP-VERSION>
         uses: mathieudutour/github-tag-action@v6.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
